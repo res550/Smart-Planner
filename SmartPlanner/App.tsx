@@ -10,6 +10,9 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import Swipe from './Components/Swipe'
+import Header from './Components/header'
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -19,17 +22,37 @@ const instructions = Platform.select({
 });
 
 interface Props {}
-export default class App extends Component<Props> {
-  render() {
+
+interface IState{
+  myText:String
+}
+export default class App extends Component<Props,IState> {
+  constructor(props:any){
+    super(props)
+    this.state={myText:"no swipe"}
+  }
+
+
+  /**
+   * onSwipe
+   */
+  public onSwipeRight(gestureState:any) {
+    this.setState({myText: 'You swiped right!'});
+  }
+
+public render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>Hello</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Header /*eventually pass in the picture off google login with some other details*/ />
+        <Swipe/>
+        <Text style={styles.welcome}>hello</Text>
+        <Text>{this.state.myText}</Text>
       </View>
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
