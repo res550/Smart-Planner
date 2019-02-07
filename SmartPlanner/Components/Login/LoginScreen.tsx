@@ -3,11 +3,7 @@ import {View, Text, Button} from 'react-native';
 import { connect } from 'react-redux'
 import { loginPressed } from '../../redux/actions/ScreenActions'
 
-interface IProps{
-    loginPressed: () =>void
-}
-
-class LoginScreen extends Component<IProps,{}>{
+class LoginScreen extends Component{
 
     public render(){
         return(

@@ -26,4 +26,4 @@ const mapStateToProps:any = (state:any) => ({
         loading:state.screens.loading,
 });
 
-export default connect(mapStateToProps)(MainApp)
+export default connect(mapStateToProps,{})(MainApp)

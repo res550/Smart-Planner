@@ -13,7 +13,7 @@ import { Provider } from 'react-redux'
 import Store from './redux/Store'
 import MainApp from './MainApp'
 
-export default class App extends Component {
+export default class App extends Component<{}> {
 
   public render() {
     return(
