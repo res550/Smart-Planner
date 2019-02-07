@@ -1,34 +1,25 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-
-
-interface IState{
-    
-}
+import {View, Text, Button} from 'react-native';
+import { connect } from 'react-redux'
+import { loginPressed } from '../../redux/actions/ScreenActions'
 
 interface IProps{
-    Callback:any
+    loginPressed: () =>void
 }
 
-class LoginScreen extends Component<IProps,IState>{
-    constructor(props:any){
-        super(props)
-        this.state = {
-            myText: 'I\'m ready to get swiped!',
-            gestureName: 'none',
-            backgroundColor: '#fff'
-        };
-    }
-
-
+class LoginScreen extends Component<IProps,{}>{
 
     public render(){
         return(
         <View>
+            <Button
+            title="Login"
+            onPress= {()=>{ this.props.loginPressed() }}
+            />
             <Text>Hello This is a header</Text>
         </View>
         );
     }
 }
 
-export default LoginScreen;
+export default connect(null,{ loginPressed })(LoginScreen);

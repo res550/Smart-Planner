@@ -1,7 +1,7 @@
 import { LOGIN, MAIN } from '../actions/types'
 
 const intialState = {
-    loggedIn: false,
+    signedIn: false,
     loading: false
 }
 
@@ -10,13 +10,13 @@ export default function (state = intialState, action: any) {
         case LOGIN:
             return {
                 ...state,
-                loggedIn: false,
+                signedIn: false,
                 loading: true
             };
         case MAIN:{
             return{
                 ...state,
-                loggedIn:true,
+                signedIn:true,
                 loading:false,
             }
         }

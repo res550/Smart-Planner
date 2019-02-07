@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native' 
+import MainScreen from './Components/MainPage/MainScreen'
+import LoginScreen from './Components/Login/LoginScreen'
 
-class MainApp extends Component {
-
-
+interface IProps{
+    loading:boolean
+    signedIn:boolean
+}
+class MainApp extends Component<IProps,{}> {
     render() {
+        console.log(this.props)
         var word = "true"
-        if(!this.props.loggedIn){
-            word = "false"
-        }
+        if(!this.props.loading){
+            return(<LoginScreen/>)
+        }else{
         return (
-            <View>
-                <Text>Current state is {word}</Text>
-            </View>
+            <MainScreen/>
         )
+        }
     }
 }
 
-const maptoprop:any = (state:any) => ({
-        loggedIn:state.screens.loggedIn,
+const mapStateToProps:any = (state:any) => ({
+        signedIn:state.screens.signedIn,
         loading:state.screens.loading,
 });
 
-export default connect(maptoprop)(MainApp)
+export default connect(mapStateToProps)(MainApp)

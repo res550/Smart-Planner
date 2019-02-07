@@ -11,7 +11,7 @@ interface IProps {
 
 }
 
-class MainScreen extends Component<IState,IProps>{
+class MainScreen extends Component<IProps,{}>{
 
     public render(){
         return(
