@@ -1,9 +1,8 @@
-import { LOGIN, MAIN } from "./types"
-import { any } from "prop-types";
+import { LOGIN } from "./types"
 
-export const loginPressed = () => (dispatch: any) => {
+export const loginSuccess = (userinfo:object) => (dispatch: any) => {
     dispatch({
         type: LOGIN,
-        payload: true
+        payload: userinfo
     })
 }

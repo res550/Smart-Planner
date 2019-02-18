@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import SwitchReducer from './SwitchReducer'
+import CalendarReducer from './CalendarReducer';
+import LoginReducer from './LoginReducer'
 
 export default combineReducers({
-    screens: SwitchReducer
+    screens: LoginReducer,
+    calendarInfo: CalendarReducer
 })

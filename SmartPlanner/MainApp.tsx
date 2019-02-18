@@ -4,26 +4,23 @@ import MainScreen from './Components/MainPage/MainScreen'
 import LoginScreen from './Components/Login/LoginScreen'
 
 interface IProps{
-    loading:boolean
+    userInfo:object
     signedIn:boolean
 }
 class MainApp extends Component<IProps,{}> {
     render() {
-        console.log(this.props)
-        var word = "true"
-        if(!this.props.loading){
+        //console.log(this.props)
+        if(!this.props.signedIn){
             return(<LoginScreen/>)
         }else{
-        return (
-            <MainScreen/>
-        )
+            return(<MainScreen/>)
         }
     }
 }
 
 const mapStateToProps:any = (state:any) => ({
         signedIn:state.screens.signedIn,
-        loading:state.screens.loading,
+        userInfo:state.screens.userInfo
 });
 
 export default connect(mapStateToProps,{})(MainApp)
