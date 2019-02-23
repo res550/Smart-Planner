@@ -2,9 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux'
-import Header from './Header/header'
-import DrawerNavigator from './Header/DrawerNavigator'
-
+import Header from './header'
 
 interface IState {
 
@@ -20,7 +18,6 @@ class MainScreen extends Component<IProps, {}>{
         console.log(this.props.calendarInfo)
         return (
             <View>
-                <DrawerNavigator/>
                 <Header/>
                 <Text>Welcome to the Main P</Text>
             </View>
